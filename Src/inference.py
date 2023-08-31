@@ -31,8 +31,8 @@ def clean_up_predictions(preds) -> list:
         image = image.resize((ORIG_HEIGHT, ORIG_WIDTH))
         imgs.append(image)
 
-def predict(img_path) -> list:
-    model = load_model("./Models/road_mapper_final.h5", custom_objects = {
+def predict(img_path,model_path) -> list:
+    model = load_model(model_path, custom_objects = {
         "soft_dice_loss" : soft_dice_loss,
         "iou_coef" : iou_coef,
         "dice_coef_loss" : dice_coef_loss,
